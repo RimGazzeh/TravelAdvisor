@@ -22,7 +22,9 @@ def versions = [
         'espresso'        : '3.3.0',
         'junit'           : '4.13.1',
         'android_junit'   : '1.1.2',
-        'arch_core'       : '2.1.0'
+        'arch_core'       : '2.1.0',
+        'retrofit'        : '2.9.0',
+        'stetho'        : '1.5.1',
 ]
 
 def deps = [
@@ -45,6 +47,10 @@ def deps = [
                 stdlib              : "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}",
                 coroutines          : "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutines}",
                 reflect             : "org.jetbrains.kotlin:kotlin-reflect:${versions.kotlin}",
+        ],
+        'network'  : [
+                retrofit       : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+                stetho         : "com.facebook.stetho:stetho-okhttp3:${versions.stetho}",
         ],
         'test'     : [
                 junit        : "junit:junit:${versions.junit}",
