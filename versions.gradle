@@ -24,7 +24,7 @@ def versions = [
         'android_junit'   : '1.1.2',
         'arch_core'       : '2.1.0',
         'retrofit'        : '2.9.0',
-        'stetho'        : '1.5.1',
+        'stetho'          : '1.5.1',
 ]
 
 def deps = [
@@ -49,8 +49,9 @@ def deps = [
                 reflect             : "org.jetbrains.kotlin:kotlin-reflect:${versions.kotlin}",
         ],
         'network'  : [
-                retrofit       : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
-                stetho         : "com.facebook.stetho:stetho-okhttp3:${versions.stetho}",
+                retrofit      : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+                stetho        : "com.facebook.stetho:stetho-okhttp3:${versions.stetho}",
+                converter_gson: "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
         ],
         'test'     : [
                 junit        : "junit:junit:${versions.junit}",

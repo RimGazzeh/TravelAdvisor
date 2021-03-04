@@ -14,6 +14,7 @@ android {
         versionName buildConfig.version.name
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+        buildConfigField "String", "BASE_URL", BASE_URL_API
     }
 
     buildTypes {
@@ -28,16 +29,22 @@ android {
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+        // Enable Coroutines and Flow APIs
+        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.FlowPreview"
     }
 }
 
 dependencies {
     implementation project(':domain')
     implementation deps.jetbrains.stdlib
+    implementation deps.jetbrains.coroutines
     implementation deps.androidx.core_ktx
     implementation deps.androidx.appcompat
     implementation deps.material
     implementation deps.network.retrofit
+    implementation deps.network.converter_gson
+    implementation deps.network.stetho
     testImplementation deps.test.junit
     androidTestImplementation deps.test.android_junit
     androidTestImplementation deps.test.espresso
