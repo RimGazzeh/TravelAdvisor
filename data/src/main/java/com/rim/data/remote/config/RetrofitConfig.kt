@@ -3,12 +3,12 @@ package com.rim.data.remote.config
 import com.facebook.stetho.okhttp3.StethoInterceptor
 import com.rim.data.BuildConfig
 import com.rim.data.BuildConfig.BASE_URL
-import com.rim.data.common.IO_TIMEOUT
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+const val IO_TIMEOUT = 30L
 
 fun okHttpBuilder(): OkHttpClient {
     val client = OkHttpClient.Builder()
@@ -20,7 +20,7 @@ fun okHttpBuilder(): OkHttpClient {
     return client.build()
 }
 
-fun buildRetrofit(
+fun retrofitBuilder(
     okHttpClient: OkHttpClient
 ): Retrofit {
     return Retrofit.Builder()

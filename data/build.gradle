@@ -36,15 +36,12 @@ android {
 }
 
 dependencies {
-    implementation project(':domain')
-    implementation deps.jetbrains.stdlib
-    implementation deps.jetbrains.coroutines
-    implementation deps.androidx.core_ktx
-    implementation deps.androidx.appcompat
-    implementation deps.material
-    implementation deps.network.retrofit
-    implementation deps.network.converter_gson
-    implementation deps.network.stetho
+    api project(':domain')
+    api deps.jetbrains.coroutines
+    api deps.androidx.core_ktx
+    api deps.network.retrofit
+    api deps.network.converter_gson
+    api deps.network.stetho
     testImplementation deps.test.junit
     androidTestImplementation deps.test.android_junit
     androidTestImplementation deps.test.espresso

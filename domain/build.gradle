@@ -9,5 +9,5 @@ java {
 }
 
 dependencies {
-    implementation deps.jetbrains.stdlib
+    api deps.jetbrains.stdlib
 }

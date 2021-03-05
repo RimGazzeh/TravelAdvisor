@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -28,6 +29,9 @@ android {
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_1_8.toString()
+        // Enable Coroutines and Flow APIs
+        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi"
+        freeCompilerArgs += "-Xopt-in=kotlinx.coroutines.FlowPreview"
     }
     buildFeatures {
         viewBinding true
@@ -35,17 +39,18 @@ android {
 }
 
 dependencies {
-    implementation deps.jetbrains.stdlib
-    implementation deps.jetbrains.reflect
-    implementation deps.androidx.core_ktx
+    implementation project(':data')
     implementation deps.androidx.appcompat
-    implementation deps.androidx.constraintlayout
     implementation deps.material
+    implementation deps.jetbrains.reflect
+    implementation deps.androidx.constraintlayout
     implementation deps.androidx.lifecycle.viewModel
     implementation deps.androidx.lifecycle.viewmodel_savedstate
     implementation deps.androidx.lifecycle.liveData
     implementation deps.androidx.lifecycle.compiler
     implementation deps.androidx.fragment
+    implementation deps.dagger.common
+    kapt deps.dagger.compiler
     testImplementation deps.test.junit
     androidTestImplementation deps.test.android_junit
     androidTestImplementation deps.test.espresso

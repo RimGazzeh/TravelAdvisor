@@ -25,6 +25,7 @@ def versions = [
         'arch_core'       : '2.1.0',
         'retrofit'        : '2.9.0',
         'stetho'          : '1.5.1',
+        'dagger'          : '2.33',
 ]
 
 def deps = [
@@ -52,6 +53,10 @@ def deps = [
                 retrofit      : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
                 stetho        : "com.facebook.stetho:stetho-okhttp3:${versions.stetho}",
                 converter_gson: "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+        ],
+        'dagger'   : [
+                common  : "com.google.dagger:dagger:${versions.dagger}",
+                compiler: "com.google.dagger:dagger-compiler:${versions.dagger}",
         ],
         'test'     : [
                 junit        : "junit:junit:${versions.junit}",

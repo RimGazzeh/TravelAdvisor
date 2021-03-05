@@ -7,7 +7,13 @@
     </style>
 
     <style name="Widget.App.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.App.Card</item>
         <item name="shapeAppearance">@style/ShapeAppearance.App.MediumComponent</item>
+    </style>
+    <style name="ThemeOverlay.App.Card" parent="">
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorSurface">?attr/colorPrimary</item>
+        <item name="colorOnSurface">?attr/colorPrimaryVariant</item>
     </style>
 
     <!-- Texts -->
