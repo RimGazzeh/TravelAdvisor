@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TravelAdvisor</string>
+    <string name="percent" translatable="false">%s\%</string>
+    <string name="outdoor">Outdoor</string>
+    <string name="leisureAndCulture">Leisure &amp; Culture</string>
+    <string name="safety">safety</string>
 </resources>

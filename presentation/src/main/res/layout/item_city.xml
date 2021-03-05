@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/itemCityGuidelineStart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.04" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/itemCityGuidelineEnd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.96" />
+
+        <TextView
+            android:id="@+id/itemCityTitle"
+            style="@style/TextTileStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toStartOf="@+id/itemCityGuidelineEnd"
+            app:layout_constraintStart_toStartOf="@+id/itemCityGuidelineStart"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="San Francisco" />
+
+        <com.rim.traveladvisor.common.widget.PercentageCustomView
+            android:id="@+id/itemCityScoreOutdoor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            app:layout_constraintEnd_toStartOf="@+id/itemCityGuidelineEnd"
+            app:layout_constraintStart_toStartOf="@+id/itemCityGuidelineStart"
+            app:layout_constraintTop_toBottomOf="@+id/itemCityTitle"
+            app:titleProgress="@string/outdoor" />
+
+        <com.rim.traveladvisor.common.widget.PercentageCustomView
+            android:id="@+id/itemCityScoreLeisureAndCulture"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            app:layout_constraintEnd_toStartOf="@+id/itemCityGuidelineEnd"
+            app:layout_constraintStart_toStartOf="@+id/itemCityGuidelineStart"
+            app:layout_constraintTop_toBottomOf="@+id/itemCityScoreOutdoor"
+            app:titleProgress="@string/leisureAndCulture" />
+
+        <com.rim.traveladvisor.common.widget.PercentageCustomView
+            android:id="@+id/itemCityScoreSafety"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/itemCityGuidelineEnd"
+            app:layout_constraintStart_toStartOf="@+id/itemCityGuidelineStart"
+            app:layout_constraintTop_toBottomOf="@+id/itemCityScoreLeisureAndCulture"
+            app:titleProgress="@string/safety" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

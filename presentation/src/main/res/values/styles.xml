@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Cards -->
+    <style name="ShapeAppearance.App.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="Widget.App.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="shapeAppearance">@style/ShapeAppearance.App.MediumComponent</item>
+    </style>
+
+    <!-- Texts -->
+    <style name="TextTileStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/circular_std_bold</item>
+    </style>
+
+    <style name="TextSmallSubtitleStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/circular_std_book</item>
+    </style>
+
+    <!-- Progress -->
+    <style name="PercentProgressStyle" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:layout_height">12dp</item>
+        <item name="android:max">100</item>
+    </style>
+</resources>
