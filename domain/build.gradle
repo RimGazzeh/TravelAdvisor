@@ -10,4 +10,6 @@ java {
 
 dependencies {
     api deps.jetbrains.stdlib
+    api deps.network.converter_gson
+    api deps.jetbrains.coroutines
 }

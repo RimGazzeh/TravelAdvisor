@@ -8,3 +8,21 @@ sealed class CallResult<out T> {
     data class Error(val exception: CallErrors) : CallResult<Nothing>()
     object Loading : CallResult<Nothing>()
 }
+
+fun <T> CallResult<out T>.fold(
+    onSuccess: (T) -> Unit,
+    onError: (CallErrors) -> Unit,
+    onLoading: () -> Unit
+) {
+    when (this) {
+        is CallResult.Success -> {
+            onSuccess(data)
+        }
+        is CallResult.Error -> {
+            onError(exception)
+        }
+        is CallResult.Loading -> {
+            onLoading()
+        }
+    }
+}
