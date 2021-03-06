@@ -3,6 +3,7 @@
     package="com.rim.traveladvisor">
 
     <application
+        android:name=".TravelAdvisorApplication"
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:icon="@mipmap/ic_launcher"

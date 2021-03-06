@@ -5,9 +5,9 @@ package com.rim.domain.usecases.base
  **/
 
 interface BaseUseCaseWithoutInput<out RESPONSE> : BaseUseCase<Nothing, RESPONSE> {
-    override fun invoke(request: Nothing): RESPONSE
+    override suspend fun invoke(request: Nothing): RESPONSE
 }
 
 interface BaseUseCase<in REQUEST, out RESPONSE> {
-    operator fun invoke(request: REQUEST): RESPONSE
+    suspend operator fun invoke(request: REQUEST): RESPONSE
 }

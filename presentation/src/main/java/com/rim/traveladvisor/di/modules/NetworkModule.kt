@@ -1,5 +1,6 @@
 package com.rim.traveladvisor.di.modules
 
+import com.rim.data.remote.ApiServices
 import com.rim.data.remote.config.okHttpBuilder
 import com.rim.data.remote.config.retrofitBuilder
 import dagger.Module
@@ -14,7 +15,6 @@ import javax.inject.Singleton
 @Module
 class NetworkModule {
 
-
     @Provides
     @Singleton
     fun providesOkHttpClient(): OkHttpClient {
@@ -28,4 +28,9 @@ class NetworkModule {
     ): Retrofit {
         return retrofitBuilder(okHttpClient)
     }
+
+    @Provides
+    @Singleton
+    fun provideApiService(retrofit: Retrofit): ApiServices =
+        retrofit.create(ApiServices::class.java)
 }

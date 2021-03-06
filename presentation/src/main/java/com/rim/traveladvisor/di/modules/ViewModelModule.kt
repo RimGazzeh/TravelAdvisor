@@ -1,7 +1,9 @@
-package com.rim.traveladvisor.di.viewmodel
+package com.rim.traveladvisor.di.modules
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.rim.traveladvisor.di.viewmodel.DaggerViewModelFactory
+import com.rim.traveladvisor.di.viewmodel.ViewModelKey
 import com.rim.traveladvisor.features.dashboard.DashboardViewModel
 import dagger.Binds
 import dagger.Module
