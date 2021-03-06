@@ -11,24 +11,25 @@ ext.buildConfig = [
 ]
 
 ext.versions = [
-        'gradle'               : '4.1.2',
-        'kotlin'               : '1.4.21',
-        'core_ktx'             : '1.3.2',
-        'appcompat'            : '1.2.0',
-        'material'             : '1.2.1',
-        'constraintlayout'     : '2.0.4',
-        'coroutines'           : '1.3.9',
-        'lifecycle'            : '2.2.0',
-        'fragment'             : '1.2.5',
-        'espresso'             : '3.3.0',
-        'junit'                : '4.13.1',
-        'android_junit'        : '1.1.2',
-        'arch_core'            : '2.1.0',
-        'retrofit'             : '2.9.0',
-        'stetho'               : '1.5.1',
-        'dagger'               : '2.33',
+        'gradle'          : '4.1.2',
+        'kotlin'          : '1.4.21',
+        'core_ktx'        : '1.3.2',
+        'appcompat'       : '1.2.0',
+        'material'        : '1.2.1',
+        'constraintlayout': '2.0.4',
+        'coroutines'      : '1.3.9',
+        'lifecycle'       : '2.2.0',
+        'fragment'        : '1.2.5',
+        'espresso'        : '3.3.0',
+        'junit'           : '4.13.1',
+        'android_junit'   : '1.1.2',
+        'arch_core'       : '2.1.0',
+        'retrofit'        : '2.9.0',
+        'stetho'          : '1.5.1',
+        'dagger'          : '2.33',
         'moshi'           : '1.11.0',
-        'coil': '0.11.0',
+        'coil'            : '1.1.1',
+        'navigation'      : '2.3.3',
 ]
 
 ext.deps = [
@@ -43,7 +44,11 @@ ext.deps = [
                         viewmodel_savedstate: "androidx.lifecycle:lifecycle-viewmodel-savedstate:${versions.lifecycle}",
                         compiler            : "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycle}"
                 ],
-                fragment        : "androidx.fragment:fragment-ktx:${versions.fragment}"
+                fragment        : "androidx.fragment:fragment-ktx:${versions.fragment}",
+                navigation      : [
+                        fragment     : "androidx.navigation:navigation-fragment-ktx:${versions.navigation}",
+                        navigation_ui: "androidx.navigation:navigation-ui-ktx:${versions.navigation}",
+                ],
         ],
         'material' : "com.google.android.material:material:${versions.material}",
         'jetbrains': [
@@ -53,8 +58,8 @@ ext.deps = [
                 reflect             : "org.jetbrains.kotlin:kotlin-reflect:${versions.kotlin}",
         ],
         'network'  : [
-                retrofit      : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
-                stetho        : "com.facebook.stetho:stetho-okhttp3:${versions.stetho}",
+                retrofit       : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+                stetho         : "com.facebook.stetho:stetho-okhttp3:${versions.stetho}",
                 converter_moshi: "com.squareup.retrofit2:converter-moshi:${versions.retrofit}",
         ],
         'dagger'   : [
@@ -67,7 +72,7 @@ ext.deps = [
                 espresso     : "androidx.test.espresso:espresso-core:${versions.espresso}",
                 arch_core    : "androidx.arch.core:core-testing:${versions.arch_core}"
         ],
-        'coil' :"io.coil-kt:coil:${versions.coil}"
+        'coil'     : "io.coil-kt:coil:${versions.coil}"
 ]
 
 ext.appModules = [

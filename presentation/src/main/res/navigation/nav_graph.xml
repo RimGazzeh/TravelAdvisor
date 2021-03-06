@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/dashboardFragment">
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.rim.traveladvisor.features.dashboard.DashboardFragment"
+        android:label="DashboardFragment">
+        <action
+            android:id="@+id/action_dashboardFragment_to_UADetailFragment"
+            app:destination="@id/UADetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/UADetailFragment"
+        android:name="com.rim.traveladvisor.features.detail.UADetailFragment"
+        android:label="UADetailFragment" />
+</navigation>

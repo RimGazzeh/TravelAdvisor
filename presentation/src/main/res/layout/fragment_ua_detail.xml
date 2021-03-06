@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/UADetailGuidelineStart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.06" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/UADetailGuidelineEnd"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.94" />
+
+        <ImageView
+            android:id="@+id/UADetailImage"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/UADetailGuidelineEnd"
+            app:layout_constraintStart_toStartOf="@+id/UADetailGuidelineStart"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/UADetailName"
+            style="@style/TextTileStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/UADetailGuidelineEnd"
+            app:layout_constraintStart_toStartOf="@+id/UADetailGuidelineStart"
+            app:layout_constraintTop_toBottomOf="@+id/UADetailImage" />
+
+        <TextView
+            android:id="@+id/UADetailSummary"
+            style="@style/TextSmallSubtitleStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintEnd_toStartOf="@+id/UADetailGuidelineEnd"
+            app:layout_constraintStart_toStartOf="@+id/UADetailGuidelineStart"
+            app:layout_constraintTop_toBottomOf="@+id/UADetailName" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/UADetailScores"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:nestedScrollingEnabled="false"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/UADetailGuidelineEnd"
+            app:layout_constraintStart_toStartOf="@+id/UADetailGuidelineStart"
+            app:layout_constraintTop_toBottomOf="@+id/UADetailSummary"
+            tools:listitem="@layout/item_ua_score" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

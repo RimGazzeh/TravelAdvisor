@@ -5,6 +5,7 @@ import com.rim.traveladvisor.di.modules.RepositoryModule
 import com.rim.traveladvisor.di.modules.UseCasesModule
 import com.rim.traveladvisor.di.modules.ViewModelModule
 import com.rim.traveladvisor.features.dashboard.DashboardFragment
+import com.rim.traveladvisor.features.detail.UADetailFragment
 import dagger.Component
 import javax.inject.Singleton
 
@@ -17,4 +18,5 @@ import javax.inject.Singleton
 )
 interface AppComponent {
     fun inject(dashboardFragment: DashboardFragment)
+    fun inject(dashboardFragment: UADetailFragment)
 }

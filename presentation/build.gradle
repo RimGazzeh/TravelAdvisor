@@ -48,6 +48,8 @@ dependencies {
     implementation deps.androidx.lifecycle.viewmodel_savedstate
     implementation deps.androidx.lifecycle.liveData
     implementation deps.androidx.lifecycle.compiler
+    implementation deps.androidx.navigation.fragment
+    implementation deps.androidx.navigation.navigation_ui
     implementation deps.androidx.fragment
     implementation deps.coil
     implementation deps.dagger.common
