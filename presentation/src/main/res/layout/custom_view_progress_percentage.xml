@@ -20,7 +20,7 @@
         app:layout_constraintGuide_percent="0.8" />
 
     <TextView
-        android:id="@+id/cvProgressTitle"
+        android:id="@+id/cvProgressName"
         style="@style/TextSmallSubtitleStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -36,10 +36,10 @@
         android:layout_width="0dp"
         android:progressDrawable="@drawable/progress_drawable"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="@+id/cvProgressTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/cvProgressName"
         app:layout_constraintEnd_toStartOf="@+id/cvProgressGuidelineEnd"
-        app:layout_constraintStart_toEndOf="@+id/cvProgressTitle"
-        app:layout_constraintTop_toTopOf="@+id/cvProgressTitle"
+        app:layout_constraintStart_toEndOf="@+id/cvProgressName"
+        app:layout_constraintTop_toTopOf="@+id/cvProgressName"
         tools:progress="50" />
 
     <TextView

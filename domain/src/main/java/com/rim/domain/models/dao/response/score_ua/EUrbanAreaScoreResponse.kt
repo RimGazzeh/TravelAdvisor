@@ -1,12 +1,14 @@
 package com.rim.domain.models.dao.response.score_ua
 
-import com.google.gson.annotations.SerializedName
 import com.rim.domain.models.entity.UrbanArea
+import com.squareup.moshi.Json
 
 data class EUrbanAreaScoreResponse(
+    @field:Json(name = "categories")
     val categories: List<ECategory>,
+    @field:Json(name = "summary")
     val summary: String,
-    @SerializedName("teleport_city_score")
+    @field:Json(name = "teleport_city_score")
     val scoreUA: Double
 )
 

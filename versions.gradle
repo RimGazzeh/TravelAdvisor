@@ -10,22 +10,23 @@ def buildConfig = [
         'id'        : 'com.rim.traveladvisor'
 ]
 def versions = [
-        'gradle'          : '4.1.2',
-        'kotlin'          : '1.4.21',
-        'core_ktx'        : '1.3.2',
-        'appcompat'       : '1.2.0',
-        'material'        : '1.2.1',
-        'constraintlayout': '2.0.4',
-        'coroutines'      : '1.3.9',
-        'lifecycle'       : '2.2.0',
-        'fragment'        : '1.2.5',
-        'espresso'        : '3.3.0',
-        'junit'           : '4.13.1',
-        'android_junit'   : '1.1.2',
-        'arch_core'       : '2.1.0',
-        'retrofit'        : '2.9.0',
-        'stetho'          : '1.5.1',
-        'dagger'          : '2.33',
+        'gradle'               : '4.1.2',
+        'kotlin'               : '1.4.21',
+        'core_ktx'             : '1.3.2',
+        'appcompat'            : '1.2.0',
+        'material'             : '1.2.1',
+        'constraintlayout'     : '2.0.4',
+        'coroutines'           : '1.3.9',
+        'lifecycle'            : '2.2.0',
+        'fragment'             : '1.2.5',
+        'espresso'             : '3.3.0',
+        'junit'                : '4.13.1',
+        'android_junit'        : '1.1.2',
+        'arch_core'            : '2.1.0',
+        'retrofit'             : '2.9.0',
+        'stetho'               : '1.5.1',
+        'dagger'               : '2.33',
+        'moshi'           : '1.11.0',
 ]
 
 def deps = [
@@ -52,7 +53,7 @@ def deps = [
         'network'  : [
                 retrofit      : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
                 stetho        : "com.facebook.stetho:stetho-okhttp3:${versions.stetho}",
-                converter_gson: "com.squareup.retrofit2:converter-gson:${versions.retrofit}"
+                converter_moshi: "com.squareup.retrofit2:converter-moshi:${versions.retrofit}",
         ],
         'dagger'   : [
                 common  : "com.google.dagger:dagger:${versions.dagger}",

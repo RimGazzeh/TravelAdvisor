@@ -7,11 +7,6 @@ import java.util.*
  **/
 
 fun getUAIdFromName(uaName: String): String {
-    val regexNonAlphabeticChar = Regex("[^A-Za-z0-9 ]")
-    uaName.apply {
-        replace(regexNonAlphabeticChar, "-")
-        toLowerCase(Locale.ROOT)
-    }
-
-    return "slug:$uaName"
+    val regexNonAlphabeticChar = Regex("[^A-Za-z0-9]")
+    return "slug:${uaName.toLowerCase(Locale.getDefault()).replace(regexNonAlphabeticChar, "-")}"
 }

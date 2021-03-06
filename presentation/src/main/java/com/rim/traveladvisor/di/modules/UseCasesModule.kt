@@ -4,7 +4,6 @@ import com.rim.domain.repositories.TravelAdvisorRepository
 import com.rim.domain.usecases.GetUrbanAreasUseCase
 import dagger.Module
 import dagger.Provides
-import javax.inject.Singleton
 
 /**
  * Created by Rim Gazzah on 3/6/21.
@@ -13,8 +12,7 @@ import javax.inject.Singleton
 @Module
 class UseCasesModule {
     @Provides
-    @Singleton
-    fun provideGetUrbanAreasUseCase(repository: TravelAdvisorRepository): GetUrbanAreasUseCase {
-        return GetUrbanAreasUseCase(repository)
+    fun provideGetUrbanAreasUseCase(travelAdvisorRepository: TravelAdvisorRepository): GetUrbanAreasUseCase {
+        return GetUrbanAreasUseCase(travelAdvisorRepository)
     }
 }

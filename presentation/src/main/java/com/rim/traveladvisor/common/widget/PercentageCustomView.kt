@@ -19,7 +19,7 @@ class PercentageCustomView @JvmOverloads constructor(
         CustomViewProgressPercentageBinding.inflate(LayoutInflater.from(context), this, true)
 
     @StringRes
-    private var titleRes: Int
+    private var nameRes: Int
 
     init {
         attrs.let {
@@ -31,8 +31,8 @@ class PercentageCustomView @JvmOverloads constructor(
                     0
                 )
             try {
-                titleRes =
-                    typedArray.getResourceId(R.styleable.PercentageCustomView_titleProgress, -1)
+                nameRes =
+                    typedArray.getResourceId(R.styleable.PercentageCustomView_nameProgress, -1)
             } finally {
                 typedArray.recycle()
             }
@@ -41,21 +41,19 @@ class PercentageCustomView @JvmOverloads constructor(
     }
 
     private fun initView() {
-        if (titleRes != -1) {
-            mBinding.cvProgressTitle.text = context.getString(titleRes)
+        if (nameRes != -1) {
+            mBinding.cvProgressName.text = context.getString(nameRes)
         }
     }
 
-    fun setTile(@StringRes title: Int): PercentageCustomView {
-        titleRes = title
-        initView()
+    fun setTile(name: String): PercentageCustomView {
+        mBinding.cvProgressName.text = name
         return this
     }
 
-    fun setPercentage(percentageValue: Int): PercentageCustomView {
-        mBinding.cvProgressBar.setProgress(percentageValue, true)
-        mBinding.cvProgressPercent.text =
-            context.getString(R.string.percent, percentageValue.toString())
+    fun setPercentage(percentageValue: Double): PercentageCustomView {
+        mBinding.cvProgressBar.setProgress(percentageValue.toInt(), true)
+        mBinding.cvProgressPercent.text = "$percentageValue%"
         return this
     }
 

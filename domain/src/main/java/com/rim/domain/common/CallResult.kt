@@ -9,10 +9,10 @@ sealed class CallResult<out T> {
     object Loading : CallResult<Nothing>()
 }
 
-fun <T> CallResult<out T>.fold(
+fun <T> CallResult<T>.fold(
     onSuccess: (T) -> Unit,
     onError: (CallErrors) -> Unit,
-    onLoading: () -> Unit
+    onLoading: (() -> Unit)? = null
 ) {
     when (this) {
         is CallResult.Success -> {
@@ -22,7 +22,8 @@ fun <T> CallResult<out T>.fold(
             onError(exception)
         }
         is CallResult.Loading -> {
-            onLoading()
+            if (onLoading != null)
+                onLoading()
         }
     }
 }

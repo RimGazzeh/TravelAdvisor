@@ -1,8 +1,8 @@
 package com.rim.domain.models.dao.response.all_ua
 
-import com.google.gson.annotations.SerializedName
+import com.squareup.moshi.Json
 
 data class ELinks(
-    @SerializedName("ua:item")
+    @field:Json(name = "ua:item")
     val item: List<EUrbanArea>
 )

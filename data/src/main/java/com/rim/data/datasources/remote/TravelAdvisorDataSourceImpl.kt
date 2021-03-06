@@ -19,10 +19,10 @@ import kotlinx.coroutines.withContext
 class TravelAdvisorDataSourceImpl(private val apiServices: ApiServices) : TravelAdvisorDataSource {
     override suspend fun getUAScore(uaName: String): UrbanArea? =
         apiServices.getUAScore(getUAIdFromName(uaName)).run {
-            if (isSuccessful && body() != null) {
+            return if (isSuccessful && body() != null) {
                 body()!!.mapToEntity(uaName)
             } else {
-                return null
+                null
             }
         }
 

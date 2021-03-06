@@ -5,7 +5,7 @@ import com.rim.data.BuildConfig
 import com.rim.data.BuildConfig.BASE_URL
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 
 const val IO_TIMEOUT = 30L
@@ -32,8 +32,8 @@ fun retrofitBuilder(
     okHttpClient: OkHttpClient
 ): Retrofit {
     return Retrofit.Builder()
-        .client(okHttpClient)
         .baseUrl(BASE_URL)
-        .addConverterFactory(GsonConverterFactory.create())
+        .addConverterFactory(MoshiConverterFactory.create())
+        .client(okHttpClient)
         .build()
 }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.rim.traveladvisor.common.widget.PercentageCustomView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/itemUAScore"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="6dp"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toStartOf="@+id/itemUAGuidelineEnd"
+    app:layout_constraintStart_toStartOf="@+id/itemUAGuidelineStart"
+    app:layout_constraintTop_toBottomOf="@+id/itemUAScoreLeisureAndCulture" />
