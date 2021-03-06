@@ -2,10 +2,11 @@ package com.rim.traveladvisor.common
 
 import android.content.Context
 import android.util.Log
-import android.view.View
-import androidx.core.view.isVisible
+import androidx.appcompat.widget.SearchView
 import com.rim.domain.common.CallErrors
 import com.rim.traveladvisor.R
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 /**
  * Created by Rim Gazzah on 3/6/21.
@@ -21,10 +22,17 @@ fun CallErrors.getErrorMsg(context: Context): String {
     }
 }
 
-fun View.hide() {
-    isVisible = false
-}
+inline fun SearchView.onQueryTextChanged(crossinline listener: (StateFlow<String>) -> Unit) {
+    this.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+        val queryText = MutableStateFlow("")
+        override fun onQueryTextSubmit(query: String?): Boolean {
+            return true
+        }
 
-fun View.show() {
-    isVisible = true
+        override fun onQueryTextChange(newText: String?): Boolean {
+            queryText.value = newText.orEmpty()
+            listener(queryText)
+            return true
+        }
+    })
 }

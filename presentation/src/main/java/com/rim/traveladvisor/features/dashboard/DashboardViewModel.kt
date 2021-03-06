@@ -5,7 +5,7 @@ import com.rim.domain.common.CallResult
 import com.rim.domain.models.entity.UrbanArea
 import com.rim.domain.usecases.GetUrbanAreasUseCase
 import com.rim.traveladvisor.base.BaseViewModel
-import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.*
 import javax.inject.Inject
 
 /**
@@ -22,6 +22,27 @@ class DashboardViewModel @Inject constructor(private val getUrbanAreasUseCase: G
             getUrbanAreasUseCase().collect {
                 _urbanAreasResult.postValue(it)
             }
+        }
+    }
+
+    fun searchUA(
+        uaName: StateFlow<String>,
+        listData: List<UrbanArea>,
+        onSearchResult: (List<UrbanArea>) -> Unit
+    ) {
+        launchOnUI {
+            uaName.debounce(300)
+                .filter { text ->
+                    return@filter text.isNotEmpty()
+                }
+                .distinctUntilChanged()
+                .flatMapLatest { textSearch ->
+                    val listFiltered = listData.filter { it.name.startsWith(textSearch, true) }
+                    flowOf(listFiltered)
+                }
+                .collect { result ->
+                    onSearchResult(result)
+                }
         }
     }
 }
