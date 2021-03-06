@@ -9,6 +9,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ProgressBar
+            android:id="@+id/UADetailLoader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/UADetailImage"
+            app:layout_constraintEnd_toEndOf="@+id/UADetailImage"
+            app:layout_constraintStart_toStartOf="@+id/UADetailImage"
+            app:layout_constraintTop_toTopOf="@+id/UADetailImage" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/UADetailGuidelineStart"
             android:layout_width="match_parent"
@@ -38,16 +47,18 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
             app:layout_constraintEnd_toStartOf="@+id/UADetailGuidelineEnd"
             app:layout_constraintStart_toStartOf="@+id/UADetailGuidelineStart"
             app:layout_constraintTop_toBottomOf="@+id/UADetailImage" />
 
         <TextView
             android:id="@+id/UADetailSummary"
-            style="@style/TextSmallSubtitleStyle"
+            style="@style/TextMediumSubtitleStyle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
+            android:lineSpacingExtra="5dp"
             app:layout_constraintEnd_toStartOf="@+id/UADetailGuidelineEnd"
             app:layout_constraintStart_toStartOf="@+id/UADetailGuidelineStart"
             app:layout_constraintTop_toBottomOf="@+id/UADetailName" />
@@ -55,7 +66,8 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/UADetailScores"
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp"
             android:nestedScrollingEnabled="false"
             android:orientation="vertical"
             android:overScrollMode="never"

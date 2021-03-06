@@ -1,12 +1,15 @@
 package com.rim.traveladvisor.features.dashboard
 
+import android.os.Bundle
 import androidx.core.view.isVisible
+import androidx.navigation.fragment.findNavController
 import com.rim.domain.common.CallResult
 import com.rim.domain.common.fold
 import com.rim.domain.models.entity.UrbanArea
 import com.rim.traveladvisor.R
 import com.rim.traveladvisor.TravelAdvisorApplication
 import com.rim.traveladvisor.base.BaseFragment
+import com.rim.traveladvisor.common.URBAN_AREA_DATA
 import com.rim.traveladvisor.common.getErrorMsg
 import com.rim.traveladvisor.common.onQueryTextChanged
 import com.rim.traveladvisor.databinding.FragmentDashbordBinding
@@ -22,7 +25,7 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashbord) {
     lateinit var viewModelFactory: DaggerViewModelFactory
     private val mViewModel by lazy { viewModelProvider(viewModelFactory) as DashboardViewModel }
     private val mBinding by viewBinding(FragmentDashbordBinding::bind)
-    private val mUrbanAreaAdapter = UrbanAreaAdapter()
+    private lateinit var mUrbanAreaAdapter: UrbanAreaAdapter
     private var mListUA: List<UrbanArea> = listOf()
 
     override fun intView() {
@@ -38,6 +41,7 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashbord) {
     }
 
     private fun initUI() {
+        mUrbanAreaAdapter = UrbanAreaAdapter { goToDetailUA(it) }
         mBinding.dashboardListUrbanArea.adapter = mUrbanAreaAdapter
     }
 
@@ -73,6 +77,13 @@ class DashboardFragment : BaseFragment(R.layout.fragment_dashbord) {
                 }
                 mUrbanAreaAdapter.setData(searchResult)
             }
+        }
+    }
+
+    private fun goToDetailUA(urbanArea: UrbanArea) {
+        Bundle().apply {
+            putSerializable(URBAN_AREA_DATA, urbanArea)
+            findNavController().navigate(R.id.action_dashboardFragment_to_UADetailFragment, this)
         }
     }
 }

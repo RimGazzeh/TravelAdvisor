@@ -23,12 +23,17 @@
         <item name="android:fontFamily">@font/circular_std_bold</item>
     </style>
 
+    <style name="TextMediumSubtitleStyle" parent="@android:style/Widget.TextView">
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:fontFamily">@font/circular_std_medium</item>
+    </style>
+
     <style name="TextSmallSubtitleStyle" parent="@android:style/Widget.TextView">
         <item name="android:textColor">?attr/colorOnPrimary</item>
         <item name="android:textSize">12sp</item>
         <item name="android:fontFamily">@font/circular_std_book</item>
     </style>
-
     <!-- Progress -->
     <style name="PercentProgressStyle" parent="Widget.AppCompat.ProgressBar.Horizontal">
         <item name="android:layout_height">12dp</item>

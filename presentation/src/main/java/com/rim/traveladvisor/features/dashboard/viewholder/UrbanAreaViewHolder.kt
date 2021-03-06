@@ -13,9 +13,12 @@ import com.rim.traveladvisor.features.dashboard.adapter.ScoreAdapter
 class UrbanAreaViewHolder(private val binding: ItemUrbanAreaBinding) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(urbanArea: UrbanArea) {
+    fun bind(urbanArea: UrbanArea, onClickUA: (UrbanArea) -> Unit) {
         binding.itemUATitle.text = urbanArea.name
         binding.itemUAListScores.adapter = ScoreAdapter(urbanArea.getTravelScoreCategories())
+        binding.itemUARootView.setOnClickListener {
+            onClickUA(urbanArea)
+        }
     }
 
     object Factory {
