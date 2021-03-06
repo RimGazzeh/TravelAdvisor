@@ -36,7 +36,7 @@ android {
 }
 
 dependencies {
-    api project(':domain')
+    api project(appModules.domain)
     api deps.androidx.core_ktx
     api deps.network.retrofit
     api deps.network.stetho

@@ -39,7 +39,7 @@ android {
 }
 
 dependencies {
-    implementation project(':data')
+    implementation project(appModules.data)
     implementation deps.androidx.appcompat
     implementation deps.material
     implementation deps.jetbrains.reflect
@@ -49,6 +49,7 @@ dependencies {
     implementation deps.androidx.lifecycle.liveData
     implementation deps.androidx.lifecycle.compiler
     implementation deps.androidx.fragment
+    implementation deps.coil
     implementation deps.dagger.common
     kapt deps.dagger.compiler
     testImplementation deps.test.junit
