@@ -17,4 +17,8 @@ class TravelAdvisorRepositoryImpl(private val dataSource: TravelAdvisorDataSourc
     override suspend fun getUrbanAreasWihScores(): Flow<CallResult<List<UrbanArea>>> = flow {
         emit(dataSource.getUrbanAreasWihScores())
     }.applyCommonSideEffects()
+
+    override suspend fun getUrbanAreaImage(uaName: String): Flow<CallResult<String>> = flow {
+        emit(dataSource.getUAImage(uaName))
+    }.applyCommonSideEffects()
 }

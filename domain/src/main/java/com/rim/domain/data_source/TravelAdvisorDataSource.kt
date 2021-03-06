@@ -9,4 +9,5 @@ import com.rim.domain.models.entity.UrbanArea
 interface TravelAdvisorDataSource {
     suspend fun getUAScore(uaName: String): UrbanArea?
     suspend fun getUrbanAreasWihScores(): CallResult<List<UrbanArea>>
+    suspend fun getUAImage(uaName: String): CallResult<String>
 }

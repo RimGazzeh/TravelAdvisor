@@ -9,4 +9,5 @@ import kotlinx.coroutines.flow.Flow
  **/
 interface TravelAdvisorRepository {
     suspend fun getUrbanAreasWihScores(): Flow<CallResult<List<UrbanArea>>>
+    suspend fun getUrbanAreaImage(uaName: String):Flow<CallResult<String>>
 }

@@ -34,17 +34,3 @@ fun <T> Flow<CallResult<T>>.applyCommonSideEffects() =
     }.catch {
         emit(CallResult.Error(CallErrors.ErrorException(throwable = it)))
     }
-
-
-inline fun <reified T, X> Response<T>.getResult(mapToEntity: T.() -> X): CallResult<X> {
-    if (this.isSuccessful) {
-        if (this.body() == null) {
-            return CallResult.Error(CallErrors.ErrorEmptyData)
-        } else {
-            if (this.body() is T) {
-                return CallResult.Success((this.body() as T).mapToEntity())
-            }
-        }
-    }
-    return CallResult.Error(CallErrors.ErrorServer)
-}

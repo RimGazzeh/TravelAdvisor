@@ -7,6 +7,7 @@ import com.rim.domain.common.CallErrors
 import com.rim.domain.common.CallResult
 import com.rim.domain.data_source.TravelAdvisorDataSource
 import com.rim.domain.models.dao.response.all_ua.mapToUrbanAreaNameList
+import com.rim.domain.models.dao.response.image_ua.getFirstImage
 import com.rim.domain.models.dao.response.score_ua.mapToEntity
 import com.rim.domain.models.entity.UrbanArea
 import kotlinx.coroutines.Dispatchers
@@ -54,4 +55,21 @@ class TravelAdvisorDataSourceImpl(private val apiServices: ApiServices) : Travel
             }
         }
     }
+
+    override suspend fun getUAImage(uaName: String): CallResult<String> =
+        apiServices.getUAImage(getUAIdFromName(uaName)).run {
+            if (this.isSuccessful) {
+                return if (this.body() == null) {
+                    CallResult.Error(CallErrors.ErrorEmptyData)
+                } else {
+                    val result = this.body()!!.getFirstImage()
+                    if (result.isNullOrBlank()) {
+                        CallResult.Error(CallErrors.ErrorEmptyData)
+                    } else {
+                        CallResult.Success(result)
+                    }
+                }
+            }
+            return CallResult.Error(CallErrors.ErrorServer)
+        }
 }

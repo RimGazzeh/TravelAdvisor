@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.rim.traveladvisor.di.viewmodel.DaggerViewModelFactory
 import com.rim.traveladvisor.di.viewmodel.ViewModelKey
 import com.rim.traveladvisor.features.dashboard.DashboardViewModel
+import com.rim.traveladvisor.features.detail.UADetailViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -19,6 +20,11 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(DashboardViewModel::class)
     abstract fun bindDashboardViewModel(dashboardViewModel: DashboardViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(UADetailViewModel::class)
+    abstract fun bindUADetailViewModel(uaDetailViewModel: UADetailViewModel): ViewModel
 
     @Binds
     abstract fun bindViewModelFactory(factory: DaggerViewModelFactory): ViewModelProvider.Factory
