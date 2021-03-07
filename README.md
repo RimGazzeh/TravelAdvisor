@@ -1,9 +1,9 @@
 # TravelAdvisor
 
 This project contain :
-*MVVM with clean architecture implementation base on [Android architecture Guide](https://developer.android.com/jetpack/docs/guide) and [Uncle Bob clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) 
-*Material design base on [Material Design Doc](https://material.io/develop/android/theming/theming-overview)
-*Travel data from [Teleport public APIs](https://developers.teleport.org/api/)
+* MVVM with clean architecture implementation base on [Android architecture Guide](https://developer.android.com/jetpack/docs/guide) and [Uncle Bob clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) 
+* Material design base on [Material Design Doc](https://material.io/develop/android/theming/theming-overview)
+* Travel data from [Teleport public APIs](https://developers.teleport.org/api/)
 
 Used Libs
 ---------------
