@@ -22,10 +22,9 @@ Used Libs
 
 Screenshots
 ---------------
-# Screenshots
 ![DashboardFragment](screenshots/screenshot_list.png)
 ![UADetailFragment](screenshots/screenshot_detail.png)
 
 To be Added
 ---------------
-*More Testing 
+* More Testing 
